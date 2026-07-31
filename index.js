@@ -605,4 +605,8 @@ if (require.main === module) {
   }
 }
 
-module.exports = { app, bot, chats };
+// Ekspor Express app sebagai default agar Vercel dapat menjalankannya sebagai
+// serverless function. Properti tambahan tetap tersedia untuk webhook dan skrip lokal.
+module.exports = app;
+module.exports.bot = bot;
+module.exports.chats = chats;
